@@ -3,7 +3,7 @@ import React from 'react';
 function ChildIframe({ targetButton }) {
   const handleIframeMessage = (event) => {
     // Ensure the message is from the correct origin (the parent domain)
-    if (event.origin === 'http://localhost:3000') {
+    if (event.origin === 'https://cross-communication-test.vercel.app') {
       // Here, event.data will contain the message sent from the parent
       console.log('Received message from parent:', event.data);
       // Implement your logic to process the message from the parent (if needed).
@@ -12,7 +12,7 @@ function ChildIframe({ targetButton }) {
 
   const handleButtonClick = () => {
     // Send a message to the parent with the button identifier
-    window.parent.postMessage(targetButton, 'http://localhost:3000');
+    window.parent.postMessage(targetButton, 'https://cross-communication-test.vercel.app');
 
     // Add a trigger to search for "Go to Google" on the parent page
     window.parent.searchFunction('Go to Google');
